@@ -42,8 +42,8 @@ const ChildTitle = (props) => {
 
 const ParentChildTile = (props) => {
     return(
-        <Tile parentTileClass={`is-parent ${props.parentTileClass}`}>
-            <Tile childTileClass={`is-child box ${props.childTileClass}`}>
+        <Tile tileClass={`is-parent ${props.tileClass}`}>
+            <Tile tileClass={`is-child box`}>
                 {props.children}
             </Tile>
         </Tile>
@@ -60,9 +60,8 @@ ReactDOM.render(
                 <Title titleText="Foo" subtitleText="Bar" />
             </ParentChildTile>
             <ParentChildTile>
-                <Title titleText="Third Column" subtitleText="With some content">
-                    <Content cardContent="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis." />
-                </Title>
+                <Title titleText="Third Column" subtitleText="With some content" />
+                <Content cardContent="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis." />
             </ParentChildTile>
         </Tile>
 
@@ -73,44 +72,34 @@ ReactDOM.render(
                         <ChildTitle titleText="Vertical Tiles" subtitleText="Top box" />
                         <ChildTitle titleText="Vertical Tiles" subtitleText="Bottom box" />
                     </Tile>
-                    <Tile tileClass="is-parent">
-                        <Tile tileClass="is-child box">
-                            <Title titleText="Middle Box" subtitleText="With an image" />
-                            <Image imageSource="https://bulma.io/images/placeholders/640x480.png" />
-                        </Tile>
-                    </Tile>
+                    <ParentChildTile>
+                        <Title titleText="Middle Box" subtitleText="With an image" />
+                        <Image imageSource="https://i.ytimg.com/vi/vDXsC2puFcw/maxresdefault.jpg" />
+                    </ParentChildTile>
                 </Tile>
-                <Tile tileClass="is-parent">
-                    <Tile tileClass="is-child box">
-                        <Title titleText="Wide column" subtitleText="Aligned with the right column" />
-                        <Content cardContent="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis." />
-                    </Tile>
-                </Tile>
+                <ParentChildTile>
+                    <Title titleText="Wide column" subtitleText="Aligned with the right column" />
+                    <Content cardContent="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis." />
+                </ParentChildTile>
             </Tile>
-            <Tile titleText="is-parent">
-                <Tile tileClass="is-child box">
-                    <Content>
-                        <Title titleText="Tall column" subtitleText="with even more content" />
-                        <Content cardContent="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper diam at erat pulvinar, at pulvinar felis blandit. Vestibulum volutpat tellus diam, consequat gravida libero rhoncus ut. Morbi maximus, leo sit amet vehicula eleifend, nunc dui porta orci, quis semper odio felis ut quam." />
-                        <Content cardContent="Suspendisse varius ligula in molestie lacinia. Maecenas varius eget ligula a sagittis. Pellentesque interdum, nisl nec interdum maximus, augue diam porttitor lorem, et sollicitudin felis neque sit amet erat. Maecenas imperdiet felis nisi, fringilla luctus felis hendrerit sit amet. Aenean vitae gravida diam, finibus dignissim turpis. Sed eget varius ligula, at volutpat tortor." />
-                        <Content cardContent="Integer sollicitudin, tortor a mattis commodo, velit urna rhoncus erat, vitae congue lectus dolor consequat libero. Donec leo ligula, maximus et pellentesque sed, gravida a metus. Cras ullamcorper a nunc ac porta. Aliquam ut aliquet lacus, quis faucibus libero. Quisque non semper leo." />
-                    </Content>
-                </Tile>
-            </Tile>
+            <ParentChildTile>
+                <Content>
+                    <Title titleText="Tall column" subtitleText="with even more content" />
+                    <Content cardContent="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper diam at erat pulvinar, at pulvinar felis blandit. Vestibulum volutpat tellus diam, consequat gravida libero rhoncus ut. Morbi maximus, leo sit amet vehicula eleifend, nunc dui porta orci, quis semper odio felis ut quam." />
+                    <Content cardContent="Suspendisse varius ligula in molestie lacinia. Maecenas varius eget ligula a sagittis. Pellentesque interdum, nisl nec interdum maximus, augue diam porttitor lorem, et sollicitudin felis neque sit amet erat. Maecenas imperdiet felis nisi, fringilla luctus felis hendrerit sit amet. Aenean vitae gravida diam, finibus dignissim turpis. Sed eget varius ligula, at volutpat tortor." />
+                    <Content cardContent="Integer sollicitudin, tortor a mattis commodo, velit urna rhoncus erat, vitae congue lectus dolor consequat libero. Donec leo ligula, maximus et pellentesque sed, gravida a metus. Cras ullamcorper a nunc ac porta. Aliquam ut aliquet lacus, quis faucibus libero. Quisque non semper leo." />
+                </Content>
+            </ParentChildTile>
         </Tile>
         <Tile tileClass="is-ancestor">
-            <Tile tileClass="is-parent">
-                <Tile tileClass="is-child box">
+            <ParentChildTile>
                     <Title titleText="Side column" subtitleText="With some content" />
                     <Content cardContent="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis." />
-                </Tile>
-            </Tile>
-            <Tile tileClass="is-parent is-8">
-                <Tile tileClass="is-child box">
+            </ParentChildTile>
+            <ParentChildTile tileClass="is-8">
                     <Title titleText="Main column" subtitleText="With some content" />
                     <Content cardContent="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis." />
-                </Tile>
-            </Tile>
+            </ParentChildTile>
         </Tile>
     </React.Fragment>,
 document.getElementById('root')
